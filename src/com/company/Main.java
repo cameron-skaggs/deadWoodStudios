@@ -4,8 +4,9 @@ public class Main {
 
     public static int playerNum;
     public static void main(String[] args) {
-        Room saloon = new Saloon();
+
         Room trailer = new Trailer();
+        Room saloon = new Saloon();
         ArrayList<Player> playerArrayList= new ArrayList<Player>();
 
 
@@ -19,7 +20,7 @@ public class Main {
         makePlayers(trailer, playerArrayList);
         for(int i =0; i < playerNum; i++){
             Room newRoom = playerArrayList.get(i).getCurrentRoom();
-
+            //System.out.println(playerArrayList.get(i).getPlayerName());
             playerTurn(playerArrayList.get(i), newRoom, i+1);
         }
 
@@ -64,20 +65,35 @@ public class Main {
         switch (playerNum){
             case 8:     Player player8 = new Player(trailer, 0);
                         playerArrayList.add(player8);
+                        player8.setPlayerName("Player 8");
+
             case 7:     Player player7 = new Player(trailer, 0);
                         playerArrayList.add(player7);
+                        player7.setPlayerName("Player 7");
+
             case 6:     Player player6 = new Player(trailer, 0);
                         playerArrayList.add(player6);
+                        player6.setPlayerName("Player 6");
+
             case 5:     Player player5 = new Player(trailer, 0);
                         playerArrayList.add(player5);
+                        player5.setPlayerName("Player 5");
+
             case 4:     Player player4 = new Player(trailer, 0);
                         playerArrayList.add(player4);
+                        player4.setPlayerName("Player 4");
+
             case 3:     Player player3 = new Player(trailer, 0);
                         playerArrayList.add(player3);
-            case 2:     Player player1 = new Player(trailer, 0);
+                        player3.setPlayerName("Player 3");
+
+            case 2:     Player player2 = new Player(trailer, 0);
+                        playerArrayList.add(player2);
+                        player2.setPlayerName("Player 2");
+
+                        Player player1 = new Player(trailer, 0);
                         playerArrayList.add(player1);
-                        Player player2 = new Player(trailer, 0);
-                        playerArrayList.add(player1);
+                        player1.setPlayerName("Player 1");
         }
         Collections.reverse(playerArrayList);
 
@@ -88,7 +104,7 @@ public class Main {
         ArrayList<Room> adjList = room.getAdjRooms();
         int size = room.getAdjRoomNum();
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Player " + nowPlaying + " you're in the " + room.getName() +", chose yer next move \n"
+        System.out.println(player.getPlayerName() + " you're in the " + room.getName() +", chose yer next move \n"
         + " (1) Move \n (2) Chose a role \n (3) Do nothin' ");
 
         int playerChoice = userInput.nextInt();

@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 public class Saloon extends Room{
 
-   // Trailer trailer = new Trailer();
     MainStreet mainStreet = new MainStreet();
     Hotel hotel = new Hotel();
+    //Trailer trailer = new Trailer();
     String name = "Saloon";
 
     public Saloon(){

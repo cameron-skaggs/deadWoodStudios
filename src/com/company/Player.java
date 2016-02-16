@@ -7,6 +7,7 @@ public class Player {
     Room currentRoom = new Trailer();
     private int rank;
     int money;
+    String playerName;
     //boolean acting;
     //int reCount;
     //Role tempRole;
@@ -20,6 +21,14 @@ public class Player {
 
         currentRoom = newRoom;
 
+    }
+
+    public void setPlayerName(String playerName){
+        this.playerName = playerName;
+    }
+
+    public String getPlayerName(){
+        return playerName;
     }
 
     public Room getCurrentRoom(){
