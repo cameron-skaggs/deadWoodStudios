@@ -7,6 +7,11 @@ import java.util.ArrayList;
  */
 public class Saloon extends Room{
 
+    int roleNum = 2;
+    Role WIRD = new Role(2, "Woman in Red Dress", false);
+    Role RF = new Role(1, "Relectant Farmer", false);
+
+
     MainStreet mainStreet = new MainStreet();
     Hotel hotel = new Hotel();
     //Trailer trailer = new Trailer();
@@ -19,9 +24,19 @@ public class Saloon extends Room{
         saloonAdjList.add(mainStreet);
         saloonAdjList.add(hotel);
 
+        saloonRoleList.add(WIRD);
+        saloonRoleList.add(RF);
+
+
+    }
+    public ArrayList<Room> getAdjRooms(){
+        return saloonAdjList;
     }
     public String getName(){
         return name;
     }
+    public ArrayList<Role> getRoomRoles(){return saloonRoleList;}
+    public int getRoleNum(){return roleNum;}
+
 
 }

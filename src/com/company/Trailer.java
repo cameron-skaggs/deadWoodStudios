@@ -20,11 +20,11 @@ public class Trailer extends Room{
     public ArrayList<Room> getAdjRooms(){
         return trailerAdjList;
     }
-
-    public String getName(){
-        return name;
-    }
     public int getAdjRoomNum(){
         return adjRoomNum;
     }
+    public String getName(){
+        return name;
+    }
+    public ArrayList<Role> getRoomRoles() {return trailerRoleList;}
 }

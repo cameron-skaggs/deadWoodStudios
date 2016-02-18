@@ -6,8 +6,7 @@ package com.company;
 public class MainStreet extends Room {
 
     String name =  "Main Street";
-    public String getName(){
-        return name;
-    }
+
+    public String getName(){return name;}
 }
 

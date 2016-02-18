@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 class Hotel extends Room{
 
-    int adjRoomNum = 3;
+   // int adjRoomNum = 3;
     //String bank;
     //Church church;
     Trailer trailer;
@@ -25,7 +25,7 @@ class Hotel extends Room{
     public String getName(){
         return name;
     }
-    public int getAdjRoomNum(){
-        return adjRoomNum;
-    }
+   // public int getAdjRoomNum(){
+       // return adjRoomNum;
+    //}
 }

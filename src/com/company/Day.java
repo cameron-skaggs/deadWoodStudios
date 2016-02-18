@@ -5,15 +5,18 @@ package com.company;
  */
 public class Day{
 
-    private int dayCount = 0;
-    public static int DayNum;
+
+    private static int dayNum;
+    public static int dayCount = 1;
 
     public static void setDayNum(int day){
-        DayNum = day;
+        dayNum = day;
     }
+    /*
     public void endDay(int sceneCount){
         if (sceneCount == 0){
             dayCount += 1;
         }
-    }
+    }*/
+    public static int getDayCount(){return dayCount;}
 }

@@ -12,12 +12,16 @@ public abstract class Room {
     static ArrayList<Room> trailerAdjList = new ArrayList<Room>();
     static ArrayList<Room> saloonAdjList = new ArrayList<Room>();
     static ArrayList<Room> hotelAdjList = new ArrayList<Room>();
-    //public class Trailer{};
-    public Room(){
-        }
-    public ArrayList getAdjRooms(){
-        return null;
-    }
+    static ArrayList<Room> mainStAdjList = new ArrayList<Room>();
+
+    static ArrayList<Role> trailerRoleList = new ArrayList<Role>();
+    static ArrayList<Role> saloonRoleList = new ArrayList<Role>();
+    static ArrayList<Role> hotelRoleList = new ArrayList<Role>();
+    static ArrayList<Role> mainStRikeList = new ArrayList<Role>();
+
+    public Room(){}
+
+    public ArrayList getAdjRooms(){return null;}
 
     public String getName(){
         return " ";
@@ -26,15 +30,10 @@ public abstract class Room {
     public int getAdjRoomNum(){
         return 0;
     }
-/*
-    public static Room arrangeRooms(Room type){
 
-       if(type == saloon){
-       }
+    public ArrayList<Role> getRoomRoles(){return null;}
 
-        return type;
-    }
-*/
+    public int getRoleNum(){return 0;}
 
 }
 
