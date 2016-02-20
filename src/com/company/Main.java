@@ -6,13 +6,15 @@ import java.util.*;
  *
  * What needs to be done:
  *
- * (1) Casting Office must be made.
+ * (1) Casting Office must be made. (Ryan)
  *
- * (2) Day class must work. And so must end game.
+ * (2) Day class must work. And so must end game. (Rimika)
  *
- * (3) Error when user tries to pick role in trailer.
+ * (3) Error when user tries to pick role in trailer.(Cameron)
  *
- * (4) Complete Room and Scene Classes/ Adacency List
+ * (4) Complete Room and Scene Classes/ Adacency List (Ryan)
+ *
+ * (5) Find any other potential errors and fixim (Rimika)
  *
  ****************************************************/
 public class Main {
