@@ -2,27 +2,37 @@ package com.company;
 import java.util.*;
 
 
-/*
+/***************************************************
  *
- * (1) Initializes all of the rooms and players
+ * What needs to be done:
  *
- * (2) gameStart gets the number of players from the player, and sets the number of days the game will have.
+ * (1) Casting Office must be made.
  *
- * (3) The majority of the game occures in this while loop. Once all the scenes have been completed
- *     the day class iterates. Once the days are completed the program will terminate
+ * (2) Day class must work. And so must end game.
  *
- * (4) These if statements ensure our player goes to the right methods depending on whether or not he is
- *     acting.
+ * (3) Error when user tries to pick role in trailer.
  *
+ * (4) Complete Room and Scene Classes/ Adacency List
  *
- */
+ ****************************************************/
 public class Main {
 
     public static int playerNum;
 
     /************************************************
     *
-    *                   Main Method
+    *                   Main Method:
+     *
+     *                  (1) Initializes all of the rooms and players
+     *
+     *                  (2) gameStart gets the number of players from the player, and sets the number of days the game will have.
+     *
+     *                  (3) The majority of the game occures in this while loop. Once all the scenes have been completed
+     *                      the day class iterates. Once the days are completed the program will terminate.
+     *                      (NOTE: not currently operating correctly.)
+     *
+     *                 (4) These if statements ensure our player goes to the right methods depending on whether or not he is
+     *                     acting.
     *
     * ***********************************************/
 
@@ -84,7 +94,13 @@ public class Main {
     }
     /************************************************
      *
-     *              Game Start Method
+     *              Game Start Method:
+     *
+     *              (1) Get user input for players
+     *
+     *              (2) Ensure amount of players is correct
+     *
+     *              (3)
      *
      * ***********************************************/
     public static int gameStart() {
@@ -325,8 +341,9 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
         Role role = player.getCurrentRole();
         System.out.println("  " + player.getPlayerName() +
-                " you're acting as the " + role.getName() + " in the scene " + scene.getName() + " you have +"
-                + player.getRehearsalCount() + " rehearsals bonus" + " You must roll a "
+                " you're acting as the " + role.getName() + " in the scene " + scene.getName() +
+                " with "  + shots + " shot(s) left. You have +"
+                + player.getRehearsalCount() + " rehearsals bonus." + " You must roll a "
                 + budget + " or higher\n (1) Rehearse \n (2) Roll");
 
         int playerChoice = userInput.nextInt();
@@ -348,7 +365,8 @@ public class Main {
 
             int roll = (int)(Math.random()*6) + 1;
             int total = roll+ player.getRehearsalCount();
-            System.out.println(" You rolled a " + roll + "\n With you're bonus you get a " + total);
+            System.out.println(" You rolled a " + roll + "\n With you're bonus you get a " +
+                    total );
             if (total >= budget){
                 System.out.println(" You completed the shot! ");
                 if(shots > 0){

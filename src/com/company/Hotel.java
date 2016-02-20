@@ -13,6 +13,7 @@ class Hotel extends Room{
     Film movie = new Film();
     Role SD = new Role(1, "Sleeping Drunkard", false);
     Role FP = new Role(1, "Faro Player", false);
+    int shots = 3;
     public Hotel(){
         super();
         hotelRoleList.add(SD);
@@ -26,4 +27,6 @@ class Hotel extends Room{
     public int getAdjRoomNum(){return adjRoomNum;}
     public void addRoom(Room room){hotelAdjList.add(room);}
     public Scene getScene(){return movie;}
+    public int getShots(){return shots;}
+    public void setShots(int shots){this.shots =shots;}
 }
