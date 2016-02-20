@@ -7,25 +7,17 @@ import java.util.ArrayList;
  */
 class Hotel extends Room{
 
-   // int adjRoomNum = 3;
-    //String bank;
-    //Church church;
-    Trailer trailer;
+    int roleNum = 4;
+    int adjRoomNum = 3;
     String name = "Hotel";
     public Hotel(){
         super();
+    }
 
-        hotelAdjList.add(trailer);
-      //  hotelAdjList.add(bank);
-      //  hotelAdjList.add(church);
-    }
-    public ArrayList<Room> getAdjRooms(){
-        return hotelAdjList;
-    }
-    public String getName(){
-        return name;
-    }
-   // public int getAdjRoomNum(){
-       // return adjRoomNum;
-    //}
+    public String getName(){return name;}
+    public ArrayList<Room> getAdjRooms(){return hotelAdjList;}
+    public ArrayList<Role> getRoomRoles(){return hotelRoleList;}
+    public int getRoleNum(){return roleNum;}
+    public int getAdjRoomNum(){return adjRoomNum;}
+    public void addRoom(Room room){hotelAdjList.add(room);}
 }

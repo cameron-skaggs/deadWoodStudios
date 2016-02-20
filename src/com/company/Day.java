@@ -12,11 +12,8 @@ public class Day{
     public static void setDayNum(int day){
         dayNum = day;
     }
-    /*
-    public void endDay(int sceneCount){
-        if (sceneCount == 0){
-            dayCount += 1;
-        }
-    }*/
+
+    public static int getDayNum() {return dayNum;}
+
     public static int getDayCount(){return dayCount;}
 }

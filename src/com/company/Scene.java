@@ -5,8 +5,18 @@ package com.company;
  */
 public abstract class Scene {
 
-    private boolean complete;
-    private int budget;
-    private Role sceneRole;
+    boolean complete;
+    int budget;
+    Role sceneRole;
+    String name;
+    boolean onCard;
+
+    public void setComplete(boolean complete){this.complete = complete;}
+    public boolean isComplete(){return complete;}
+    public int getBudget(){return budget;}
+    public String getName(){return name;}
+    public boolean isOnCard(){return onCard;}
+
+
 
 }

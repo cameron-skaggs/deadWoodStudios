@@ -1,0 +1,17 @@
+Adjacency List:
+Saloon:
+-trailer
+-main street
+-bank
+-general store
+
+Main street:
+-saloon
+-trailer
+-hotel
+-jail
+
+Hotel:
+-trailer
+-bank
+-church
