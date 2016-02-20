@@ -56,6 +56,18 @@ public class Main {
         /* (3) */
         while(Day.getDayCount() <= Day.getDayNum()) {
 
+            boolean saloonScene = saloon.getScene().isComplete();
+            boolean hotelScene = hotel.getScene().isComplete();
+            boolean mainStScene = hotel.getScene().isComplete();
+            if(saloonScene && hotelScene && mainStScene){
+                int count = Day.getDayCount() +1;
+                Day.setDayNum(count);
+                System.out.println(" Day has ended now on day " +
+                        Day.getDayCount() + "Every actor back to their trailers!" );
+                for (int i = 0; i < playerNum; i++){
+                    playerArrayList.get(i).setRoom(trailer);
+                }
+            }
             for (int i = 0; i < playerNum; i++) {
 
                 Player player = playerArrayList.get(i);
@@ -78,21 +90,21 @@ public class Main {
     public static int gameStart() {
 
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Howdy partner! Welcome to DeadWood Studios! \n How many players? ");
+        System.out.println("\n Howdy partner! Welcome to DeadWood Studios! \n How many players? \n >");
         playerNum = userInput.nextInt();
 
         while(playerNum > 8 || playerNum < 2){
 
-            System.out.println("Sorry partner, only 2-8 players please. \n ");
-            System.out.println("Howdy partner! Welcome to DeadWood Studios! \n How many players? ");
+            System.out.println("\n Sorry partner, only 2-8 players please. \n ");
+            System.out.println("\n Howdy partner! Welcome to DeadWood Studios! \n How many players? \n >");
             playerNum = userInput.nextInt();
         }
-        System.out.println(playerNum + " players, is this correct \n (1)Yes \n (2)No? \n>");
+        System.out.println(" "+ playerNum + " players, is this correct? \n (1)Yes \n (2)No? \n >");
 
         int correctPlayers = userInput.nextInt();
 
         if (correctPlayers==1) {
-            System.out.println("Yahoo! Let's begin, partner!");
+            System.out.println("\n Yahoo! Let's begin, partner! \n");
             if (playerNum <= 2){
                 Day.setDayNum(3);
             }else{
@@ -156,26 +168,38 @@ public class Main {
     }
     /************************************************
      *
-     *              Player Turn Method
+     *              Player Turn Method:
+     *
+     *              (1) Initialize Important Variables,
+     *
+     *              (2) Ensures correct user input.
+     *
+     *              (3) Takes the player to the correct helper
+     *                  function based on their choice.
      *
      * ***********************************************/
     public static void playerTurn(Player player, Room room){
 
+        /* (1) */
         ArrayList<Room> adjList = room.getAdjRooms();
         int size = room.getAdjRoomNum();
         Scanner userInput = new Scanner(System.in);
-        System.out.print(player.getPlayerName() + "\n you're in the " +
-                room.getName() +", chose yer next move \n"
-        + " (1) Move \n (2) Chose a role \n (3) Do nothin' \n> ");
+
+        System.out.print(" " + player.getPlayerName() + " you're in the " +
+                room.getName() +" you have $"+ player.getMoney() +
+                " and are rank "+ player.getRank() + ", chose yer next move \n"
+                + " (1) Move \n (2) Chose a role \n (3) Do nothin' \n > ");
 
         int playerChoice = userInput.nextInt();
 
+        /* (2) */
         while(playerChoice < 1 || playerChoice > 3){
             System.out.println(playerChoice + " is not a valid option partner, try again \n (1) Move \n" +
                     " (2) Chose a role \n" +
-                    " (3) Do nothin'");
+                    " (3) Do nothin' \n >");
             playerChoice = userInput.nextInt();
         }
+        /* (3) */
         if(playerChoice== 1) {
             move(player, room, adjList);
         }
@@ -196,32 +220,49 @@ public class Main {
             int j = i+1;
             System.out.println("(" + j +") " + adjList.get(i).getName());
         }
+        System.out.println("\n >");
         Scanner userInput = new Scanner(System.in);
         int playerMove = userInput.nextInt() - 1;
 
         while (playerMove > size){
-            System.out.println("Bad move buddy");
+            System.out.println(" Bad move buddy");
             for (int i= 0; i < size; i++){
                 int j = i+1;
                 System.out.println("(" + j +") " + adjList.get(i).getName());
                 playerMove = userInput.nextInt() -1;
             }
         }
-        System.out.println("You move into the " + adjList.get(playerMove).getName() + "\n");
+        System.out.println(" You move into the " + adjList.get(playerMove).getName() + "\n");
         Room newRoom = adjList.get(playerMove);
 
         if(newRoom.getScene() != null){
             Scene scene =newRoom.getScene();
-            System.out.println("This room has the scene " +
-                    scene.getName() + " it has the a budget of "
-                    + scene.getBudget() + " million");
+            if(!scene.isComplete()){
+                System.out.println(" This room has the scene " +
+                        scene.getName() + " it has the a budget of "
+                        + scene.getBudget() + " million \n");
+            }
+            if(scene.isComplete()){
+                System.out.println(" This room has no more scenes available ");
+            }
+
         }
 
         player.setRoom(newRoom);
     }
     /************************************************
      *
-     *                   Choose Role Method
+     *                   Choose Role Method:
+     *
+     *                   (1) The room has no roles
+     *
+     *                   (2) Prints roles
+     *
+     *                   (3) Rank doesn't reach role
+     *
+     *                   (4) Roles are already taken
+     *
+     *                   (5) Successful Role Change
      *
      * ***********************************************/
     public static void chooseRole(Room room, Player player,int size, ArrayList<Room> adjList) {
@@ -230,6 +271,7 @@ public class Main {
         System.out.println("\n Roles in " + room.getName() + "\n");
         int roleSize = room.getRoleNum();
 
+        /* (1) */
         if (room.getRoomRoles().size()==0) {
             System.out.println("No roles left in this room partner. Try again! \n");
             System.out.println(player.getPlayerName() + " you're in the " + room.getName() + ", chose yer next move \n"
@@ -242,6 +284,7 @@ public class Main {
                 move(player, room, adjList);
             }
         }
+        /* (2) */
         for (int i=0; i < roleSize; i++){
             int j = i+1;
             Role role = room.getRoomRoles().get(i);
@@ -252,18 +295,19 @@ public class Main {
         Role role = room.getRoomRoles().get(playerMove);
 
         if(player.getRank() < role.getRoleRank()){
-            System.out.println("Sorry partner, your rank is "
+            System.out.println(" Sorry partner, your rank is "
                     + player.getRank() + " you need to be rank " +
                     role.getRoleRank() + " or above");
         }
+        /* (4) */
         if(role.isInUSe()){
-            System.out.println("There is already an actor in this here role!");
+            System.out.println(" There is already an actor in this here role!");
         }
         if(player.getRank() >= role.getRoleRank() && !role.isInUSe()){
             player.setCurrentRole(role);
             role.setInUSe(true);
             player.setActing(true);
-            System.out.println( "You're now the " + role.getName() + "\n");
+            System.out.println( " You're now the " + role.getName() + "\n");
 
         }
 
@@ -280,8 +324,8 @@ public class Main {
         int shots = room.getShots();
         Scanner userInput = new Scanner(System.in);
         Role role = player.getCurrentRole();
-        System.out.println("Player " + player.getPlayerName() +
-                " you're acting as the " + role.getName() + "in the scene " + scene + " you have +"
+        System.out.println("  " + player.getPlayerName() +
+                " you're acting as the " + role.getName() + " in the scene " + scene.getName() + " you have +"
                 + player.getRehearsalCount() + " rehearsals bonus" + " You must roll a "
                 + budget + " or higher\n (1) Rehearse \n (2) Roll");
 
@@ -298,26 +342,39 @@ public class Main {
         }
         if(playerChoice == 1){
             player.setRehearsalCount(player.getRehearsalCount()+1);
-            System.out.println("You're rehearsal count is now " + player.getRehearsalCount());
+            System.out.println(" You're rehearsal count is now " + player.getRehearsalCount());
         }
         if(playerChoice == 2){
 
             int roll = (int)(Math.random()*6) + 1;
             int total = roll+ player.getRehearsalCount();
-            System.out.println("You rolled a " + roll + "\n With you're bonus you get a " + total);
+            System.out.println(" You rolled a " + roll + "\n With you're bonus you get a " + total);
             if (total >= budget){
-                System.out.println("You completed the shot! ");
-                if(shots > 1){
-                    System.out.println("You have " + shots + " left");
+                System.out.println(" You completed the shot! ");
+                if(shots > 0){
+                    System.out.println("You have " + shots + " shot(s) left");
+                    room.setShots(shots-1);
                 }
-                if(shots == 1){
-                    System.out.println("Scene Complete");
+                if(shots == 0){
+                    System.out.println("Scene Complete!");
+                    scene.setComplete(true);
+                    player.setActing(false);
+
+                    if(role.isOnCard()){
+                        player.addMoney(budget);
+                        System.out.println("You made $" + budget + "!");
+                    }
                 }
                 /*
                 * I prefer this method of adding money
                 * */
-                if(scene.isOnCard()){
-                    player.addMoney(budget);
+                if(role.isOnCard()){
+                    player.addMoney(3);
+                    System.out.println("You made $3!");
+                }
+                if(!role.isOnCard()){
+                    player.addMoney(2);
+                    System.out.println("You made $2!");
                 }
             }
         }

@@ -28,5 +28,6 @@ public class Saloon extends Room{
     public void addRoom(Room room){saloonAdjList.add(room);}
     public int getShots(){return shots;}
     public Scene getScene(){return movie;}
+    public void setShots(int shots){this.shots =shots;}
 
 }

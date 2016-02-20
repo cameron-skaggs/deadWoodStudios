@@ -14,6 +14,7 @@ public class MainStreet extends Room {
     Role WIBD = new Role(2, "Woman in Black Dress", false);
     Role MM = new Role(4, "Mayor McGinty", false);
     String name =  "Main Street";
+    Production movie = new Production();
 
     public MainStreet(){
         super();
@@ -29,5 +30,6 @@ public class MainStreet extends Room {
     public int getRoleNum(){return roleNum;}
     public int getAdjRoomNum(){return adjRoomNum;}
     public void addRoom(Room room){mainStAdjList.add(room);}
+    public Scene getScene(){return movie;}
 }
 

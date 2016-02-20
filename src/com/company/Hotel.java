@@ -10,8 +10,13 @@ class Hotel extends Room{
     int roleNum = 4;
     int adjRoomNum = 3;
     String name = "Hotel";
+    Film movie = new Film();
+    Role SD = new Role(1, "Sleeping Drunkard", false);
+    Role FP = new Role(1, "Faro Player", false);
     public Hotel(){
         super();
+        hotelRoleList.add(SD);
+        hotelRoleList.add(FP);
     }
 
     public String getName(){return name;}
@@ -20,4 +25,5 @@ class Hotel extends Room{
     public int getRoleNum(){return roleNum;}
     public int getAdjRoomNum(){return adjRoomNum;}
     public void addRoom(Room room){hotelAdjList.add(room);}
+    public Scene getScene(){return movie;}
 }

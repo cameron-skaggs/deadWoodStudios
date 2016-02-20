@@ -9,14 +9,10 @@ public abstract class Scene {
     int budget;
     Role sceneRole;
     String name;
-    boolean onCard;
 
-    public void setComplete(boolean complete){this.complete = complete;}
+    public void setComplete(boolean complete){}
     public boolean isComplete(){return complete;}
     public int getBudget(){return budget;}
     public String getName(){return name;}
-    public boolean isOnCard(){return onCard;}
-
-
 
 }

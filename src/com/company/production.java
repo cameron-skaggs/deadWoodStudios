@@ -1,14 +1,12 @@
 package com.company;
-import java.util.*;
 
 /**
  * Created by skaggsc2 on 2/19/16.
  */
-class Movie extends Scene {
-
-    int budget = 3;
+class Production extends Scene {
+    int budget = 6;
     boolean complete = false;
-    String name = "movie";
+    String name = "production";
 
     public void setComplete(boolean complete){}
     public boolean isComplete(){return complete;}

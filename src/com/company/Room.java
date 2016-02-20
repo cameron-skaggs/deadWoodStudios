@@ -32,6 +32,7 @@ public abstract class Room {
     public int getRoleNum(){return 0;}
     public void addRoom(Room room){}
     public int getShots(){return 0;}
+    public void setShots(int shots){}
     public Scene getScene(){return null;}
 }
 

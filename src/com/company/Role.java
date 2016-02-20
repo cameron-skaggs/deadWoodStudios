@@ -25,4 +25,6 @@ public class Role {
     public void setInUSe(boolean inUSe){
         this.inUSe = inUSe;
     }
+
+    public boolean isOnCard(){return onCard;}
 }
