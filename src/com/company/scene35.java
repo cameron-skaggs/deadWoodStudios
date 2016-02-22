@@ -28,7 +28,6 @@ public class scene35 extends Scene {
 
         this.budget = 6;
 
-
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role1int, role1, true);
     }

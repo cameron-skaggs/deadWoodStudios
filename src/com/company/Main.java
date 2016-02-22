@@ -332,9 +332,16 @@ public class Main {
             int playerChoice2 = userInput.nextInt();
         }*/
         /* (2) */
+        int size2 = room.getScene().getSceneRoles().size();
         for (int i=0; i < roleSize; i++){
             int j = i+1;
             Role role = room.getRoomRoles().get(i);
+            System.out.println("(" + j +") " + role.getName() + "- Rank:" +
+                    role.getRoleRank() + "  Your rank: " + player.getRank());
+        }
+        for (int i=0; i < size2; i++){
+            int j = i+1;
+            Role role = room.getScene().getSceneRoles().get(i);
             System.out.println("(" + j +") " + role.getName() + "- Rank:" +
                     role.getRoleRank() + "  Your rank: " + player.getRank());
         }
