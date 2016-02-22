@@ -6,15 +6,11 @@ import java.util.*;
  *
  * What needs to be done:
  *
- * (1) Casting Office must be made. (Ryan)
+ * (1) Fix the changes requestd for room classes (Ryan)
  *
- * (2) Day class must work. And so must end game. (Rimika)
+ * (2) Add all rooms to adjacency lists in main. (Ryan)
  *
- * (3) Error when user tries to pick role in trailer.(Cameron)
- *
- * (4) Complete Room and Scene Classes/ Adacency List (Ryan)
- *
- * (5) Find any other potential errors and fixim (Rimika)
+ * (3) Distribute the scenes for the rooms (Rimika)
  *
  ****************************************************/
 public class Main {

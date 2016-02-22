@@ -19,12 +19,26 @@ public abstract class Room {
     static ArrayList<Room> hotelAdjList = new ArrayList<Room>();
     static ArrayList<Room> mainStAdjList = new ArrayList<Room>();
     static ArrayList<Room> bankAdjList;
+    static ArrayList<Room> churchAdjList;
+    static ArrayList<Room> generalStoreAdjList;
+    static ArrayList<Room> jailAdjList;
+    static ArrayList<Room> ranchAdjList;
+    static ArrayList<Room> hideoutAdjList;
+    static ArrayList<Room> stationAdjList;
+    static ArrayList<Room> castingAdjList;
     /*(2)*/
     static ArrayList<Role> trailerRoleList = new ArrayList<Role>();
     static ArrayList<Role> saloonRoleList = new ArrayList<Role>();
     static ArrayList<Role> hotelRoleList = new ArrayList<Role>();
     static ArrayList<Role> mainStRoleList = new ArrayList<Role>();
     static ArrayList<Role> bankRoleList;
+    static ArrayList<Role> churchRoleList;
+    static ArrayList<Role> generalStoreRoleList;
+    static ArrayList<Role> jailRoleList;
+    static ArrayList<Role> ranchRoleList;
+    static ArrayList<Role> hideoutRoleList;
+    static ArrayList<Role> stationRoleList;
+    static ArrayList<Role> castingRoleList;
     /*(3)*/
     public Room(){}
     public ArrayList getAdjRooms(){return null;}
