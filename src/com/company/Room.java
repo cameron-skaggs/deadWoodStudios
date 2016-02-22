@@ -18,11 +18,13 @@ public abstract class Room {
     static ArrayList<Room> saloonAdjList = new ArrayList<Room>();
     static ArrayList<Room> hotelAdjList = new ArrayList<Room>();
     static ArrayList<Room> mainStAdjList = new ArrayList<Room>();
+    static ArrayList<Room> bankAdjList;
     /*(2)*/
     static ArrayList<Role> trailerRoleList = new ArrayList<Role>();
     static ArrayList<Role> saloonRoleList = new ArrayList<Role>();
     static ArrayList<Role> hotelRoleList = new ArrayList<Role>();
     static ArrayList<Role> mainStRoleList = new ArrayList<Role>();
+    static ArrayList<Role> bankRoleList;
     /*(3)*/
     public Room(){}
     public ArrayList getAdjRooms(){return null;}
