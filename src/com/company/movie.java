@@ -9,6 +9,7 @@ class Movie extends Scene {
     int budget = 3;
     boolean complete = false;
     String name = "movie";
+    Role role1 = new Role(1, "Some Role", true);
 
     public void setComplete(boolean complete){}
     public boolean isComplete(){return complete;}

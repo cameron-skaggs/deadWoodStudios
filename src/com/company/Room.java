@@ -28,7 +28,7 @@ public abstract class Room {
     public ArrayList getAdjRooms(){return null;}
     public String getName(){return " ";}
     public int getAdjRoomNum(){return 0;}
-    public ArrayList<Role> getRoomRoles(){return null;}
+    public ArrayList<Role> getRoomRoles(){return trailerRoleList;}
     public int getRoleNum(){return 0;}
     public void addRoom(Room room){}
     public int getShots(){return 0;}

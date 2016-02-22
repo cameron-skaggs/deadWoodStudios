@@ -38,6 +38,7 @@ public class Main {
     *
     * ***********************************************/
 
+
     public static void main(String[] args) {
 
         /* (1) */
@@ -85,13 +86,20 @@ public class Main {
                 Player player = playerArrayList.get(i);
                 Room newRoom = playerArrayList.get(i).getCurrentRoom();
                 if(player.isActing()){
+                    System.out.println(player.getPlayerName() + " currently is in rank "
+                            + player.getRank() + " and has the role " + player.getCurrentRole()
+                            + " along with " + player.getMoney() + " dollars.\n\n");
                     playerActTurn(player, newRoom);
                 }
                 if(!player.isActing()){
+                    System.out.println(player.getPlayerName() + " has rank "
+                            + player.getRank() + " and has "
+                            + player.getMoney() + " dollars.\n\n");
                     playerTurn(player, newRoom);
                 }
             }
         }
+        Day.determineWinner(playerArrayList, playerNum);
 
     }
     /************************************************
@@ -102,15 +110,17 @@ public class Main {
      *
      *              (2) Ensure amount of players is correct
      *
-     *              (3)
+     *              (3) Make sure player put in right number
      *
      * ***********************************************/
     public static int gameStart() {
 
+        /* (1) */
         Scanner userInput = new Scanner(System.in);
         System.out.println("\n Howdy partner! Welcome to DeadWood Studios! \n How many players? \n >");
         playerNum = userInput.nextInt();
 
+        /* (2) */
         while(playerNum > 8 || playerNum < 2){
 
             System.out.println("\n Sorry partner, only 2-8 players please. \n ");
@@ -202,29 +212,52 @@ public class Main {
         ArrayList<Room> adjList = room.getAdjRooms();
         int size = room.getAdjRoomNum();
         Scanner userInput = new Scanner(System.in);
+        if (room.getRoomRoles().size() == 0) {
 
-        System.out.print(" " + player.getPlayerName() + " you're in the " +
-                room.getName() +" you have $"+ player.getMoney() +
-                " and are rank "+ player.getRank() + ", chose yer next move \n"
-                + " (1) Move \n (2) Chose a role \n (3) Do nothin' \n > ");
+                System.out.println(player.getPlayerName()
+                        +" you're in the " + room.getName()+ " choose your next move " +
+                        "\n (1) Move \n" +
+                        " (2) Do nothin' \n >");
 
-        int playerChoice = userInput.nextInt();
+            int playerChoice = userInput.nextInt();
 
-        /* (2) */
-        while(playerChoice < 1 || playerChoice > 3){
-            System.out.println(playerChoice + " is not a valid option partner, try again \n (1) Move \n" +
-                    " (2) Chose a role \n" +
-                    " (3) Do nothin' \n >");
-            playerChoice = userInput.nextInt();
+            while(playerChoice < 1 || playerChoice > 2) {
+                System.out.println(playerChoice + " is not a valid option partner, try" +
+                        " again \n (1) Move \n" +
+                        " (2) Do nothin' \n >");
+                playerChoice = userInput.nextInt();
+            }
+
+            if(playerChoice== 1) {
+                move(player, room, adjList);
+            }
         }
-        /* (3) */
-        if(playerChoice== 1) {
-            move(player, room, adjList);
+        if(room.getRoomRoles().size() > 0 ){
+            System.out.print(" " + player.getPlayerName() + " you're in the " +
+                    room.getName() +" you have $"+ player.getMoney() +
+                    " and are rank "+ player.getRank() + ", chose yer next move \n"
+                    + " (1) Move \n (2) Chose a role \n (3) Do nothin' \n > ");
+
+            int playerChoice = userInput.nextInt();
+
+             /* (2) */
+
+            while(playerChoice < 1 || playerChoice > 3){
+                System.out.println(playerChoice + " is not a valid option partner, try again \n (1) Move \n" +
+                        " (2) Chose a role \n" +
+                        " (3) Do nothin' \n >");
+                playerChoice = userInput.nextInt();
+            }
+            /* (3) */
+            if(playerChoice== 1) {
+                move(player, room, adjList);
+            }
+
+            if(playerChoice == 2){
+                chooseRole(room, player, size, adjList);
+            }
         }
 
-        if(playerChoice == 2){
-            chooseRole(room, player, size, adjList);
-        }
     }
     /************************************************
      *
@@ -234,6 +267,7 @@ public class Main {
     public static void move(Player player, Room room,ArrayList<Room> adjList){
         System.out.println("\n Chose a room : \n");
         int size = adjList.size();
+        System.out.println(size);
         for (int i= 0; i < size; i++){
             int j = i+1;
             System.out.println("(" + j +") " + adjList.get(i).getName());
@@ -242,13 +276,13 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
         int playerMove = userInput.nextInt() - 1;
 
-        while (playerMove > size){
+        while (playerMove+1 >= size +1){
             System.out.println(" Bad move buddy");
             for (int i= 0; i < size; i++){
                 int j = i+1;
                 System.out.println("(" + j +") " + adjList.get(i).getName());
-                playerMove = userInput.nextInt() -1;
             }
+            playerMove = userInput.nextInt() -1;
         }
         System.out.println(" You move into the " + adjList.get(playerMove).getName() + "\n");
         Room newRoom = adjList.get(playerMove);
@@ -272,7 +306,7 @@ public class Main {
      *
      *                   Choose Role Method:
      *
-     *                   (1) The room has no roles
+     *                   (1) The room has no roles (doesn't resolve)
      *
      *                   (2) Prints roles
      *
@@ -290,18 +324,13 @@ public class Main {
         int roleSize = room.getRoleNum();
 
         /* (1) */
+        /*
         if (room.getRoomRoles().size()==0) {
             System.out.println("No roles left in this room partner. Try again! \n");
             System.out.println(player.getPlayerName() + " you're in the " + room.getName() + ", chose yer next move \n"
                     + " (1) Move \n (2) Do nothin' ");
             int playerChoice2 = userInput.nextInt();
-            /*
-            * Error: Doesn't resolve.
-            * */
-            if (playerChoice2 == 1) {
-                move(player, room, adjList);
-            }
-        }
+        }*/
         /* (2) */
         for (int i=0; i < roleSize; i++){
             int j = i+1;
