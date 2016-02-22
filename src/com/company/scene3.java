@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -18,6 +20,9 @@ public class scene3 extends Scene {
     Role Role2;
     Role Role3;
 
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
+
     public scene3() {
         this.scenename = "Shakespear in Lubbok";
         this.role1 = "Falls from Tree";
@@ -27,6 +32,8 @@ public class scene3 extends Scene {
         this.role2int = 3;
         this.role3int = 4;
         this.budget = 3;
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
 
 
         Role1 = new Role(role1int, role1, true);

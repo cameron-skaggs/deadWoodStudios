@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -17,6 +19,9 @@ public class scene4 extends Scene {
     Role Role1;
     Role Role2;
     Role Role3;
+
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
 
     public scene4() {
         this.scenename = "Down in the Valley";

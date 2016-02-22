@@ -34,7 +34,7 @@ public class scene33 extends Scene {
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role1int, role1, true);
 
-        roleArrayList.add(Role1); //add these additions, this all these can be copied pasted.
+        roleArrayList.add(Role1); //add these
         roleArrayList.add(Role2);
 
     }
@@ -46,4 +46,3 @@ public class scene33 extends Scene {
     public ArrayList<Role> getRoleArrayList(){return roleArrayList;} //add this
 
 }
-

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -17,7 +19,8 @@ public class scene37 extends Scene {
     Role Role1;
     Role Role2;
     Role Role3;
-
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
     public scene37() {
         this.scenename = "Ghosts of November";
         this.role1 = "Vincint";
@@ -31,6 +34,8 @@ public class scene37 extends Scene {
 
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role1int, role1, true);
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
     }
 
     public void setComplete(boolean complete){}

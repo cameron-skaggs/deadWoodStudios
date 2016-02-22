@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -18,6 +20,8 @@ public class scene7 extends Scene {
     Role Role2;
     Role Role3;
 
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
 
     public scene7() {
         this.scenename = "Gunfight at the Golden Corral";
@@ -28,7 +32,8 @@ public class scene7 extends Scene {
         this.role2int = 4;
         this.role3int = 6;
         this.budget = 4;
-
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role2int, role2, true);
         Role3 = new Role(role3int, role3, true);

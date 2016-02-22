@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -19,6 +21,8 @@ public class scene12 extends Scene {
     Role Role3;
 
 
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
     public scene12() {
         this.scenename = "Cold Hearted Snakes";
         this.role1 = "Jailer";
@@ -32,6 +36,9 @@ public class scene12 extends Scene {
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role2int, role2, true);
         Role3 = new Role(role3int, role3, true);
+
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
     }
 
     public void setComplete(boolean complete){}

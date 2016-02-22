@@ -1,4 +1,7 @@
 package com.company;
+
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -17,6 +20,10 @@ public class scene1 extends Scene {
     Role Role2;
     Role Role3;
 
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
+
+
     public scene1() {
         this.scenename = "How the Grinch Stole Texas";
         this.role1 = "Texas Ranger";
@@ -26,6 +33,8 @@ public class scene1 extends Scene {
         this.role2int = 4;
         this.role3int = 5;
         this.budget = 5;
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
 
 
         Role1 = new Role(role1int, role1, true);

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by skaggsc2 on 2/21/16.
  */
@@ -16,6 +18,8 @@ public class scene28 extends Scene {
     public Room currentroom;
     Role Role1;
     Role Role2;
+    ArrayList<Role> roleArrayList;
+    public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
     public scene28() {
         this.scenename = "The Rainmaker of Russell County";
         this.role1 = "Preacher";
@@ -29,6 +33,8 @@ public class scene28 extends Scene {
 
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role1int, role1, true);
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
     }
     public void setComplete(boolean complete){}
     public boolean isComplete(){return complete;}
