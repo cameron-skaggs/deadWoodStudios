@@ -5,29 +5,29 @@ import java.util.ArrayList;
 /**
  * Created by skaggsc2 on 2/8/16.
  */
-class Saloon extends Room{
+class GeneralStore extends Room{
 
     int roleNum = 2;
     int adjRoomNum = 4;
-    String name = "Saloon";
+    String name = "General Store";
     Scene movie;
-    Role R1 = new Role(1, "Reluctant Farmer", false);
-    Role R2 = new Role(2, "Woman in Red Dress", false);
+    Role R1 = new Role(1, "Man in Overalls", false);
+    Role R2 = new Role(3, "Mister Keach", false);
 
     int shots = 2;
-    public Saloon(){
+    public GeneralStore(){
         super();
-        SaloonRoleList.add(R1);
-        SaloonRoleList.add(R2);
+        GeneralStoreRoleList.add(R1);
+        GeneralStoreRoleList.add(R2);
 
     }
 
     public String getName(){return name;}
-    public ArrayList<Room> getAdjRooms(){return SaloonAdjList;}
-    public ArrayList<Role> getRoomRoles(){return SaloonRoleList;}
+    public ArrayList<Room> getAdjRooms(){return GeneralStoreAdjList;}
+    public ArrayList<Role> getRoomRoles(){return GeneralStoreRoleList;}
     public int getRoleNum(){return roleNum;}
     public int getAdjRoomNum(){return adjRoomNum;}
-    public void addRoom(Room room){SaloonAdjList.add(room);}
+    public void addRoom(Room room){GeneralStoreAdjList.add(room);}
     public Scene getScene(){return movie;}
     public int getShots(){return shots;}
     public void setShots(int shots){this.shots =shots;}

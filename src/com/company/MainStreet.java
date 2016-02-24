@@ -3,33 +3,37 @@ package com.company;
 import java.util.ArrayList;
 
 /**
- * Created by skaggsc2 on 2/14/16.
+ * Created by skaggsc2 on 2/8/16.
  */
-public class MainStreet extends Room {
+class MainStreet extends Room{
 
-    int adjRoomNum = 4;
     int roleNum = 4;
-    Role RW = new Role(1, "Railroad Worker", false);
-    Role FOR = new Role(2, "Falls off Roof", false);
-    Role WIBD = new Role(2, "Woman in Black Dress", false);
-    Role MM = new Role(4, "Mayor McGinty", false);
-    String name =  "Main Street";
-    Production movie = new Production();
-
+    int adjRoomNum = 3;
+    String name = "MainStreet";
+    Scene movie;
+    Role R1 = new Role(1, "Railroad Worker", false);
+    Role R2 = new Role(2, "Falls off Roof", false);
+    Role R3 = new Role(3, "Woman in Black Dress", false);
+    Role R4 = new Role(4, "Mayor McGlinty", false);
+    int shots = 3;
     public MainStreet(){
         super();
-        mainStRoleList.add(RW);
-        mainStRoleList.add(FOR);
-        mainStRoleList.add(WIBD);
-        mainStRoleList.add(MM);
+        MainStreetRoleList.add(R1);
+        MainStreetRoleList.add(R2);
+        MainStreetRoleList.add(R3);
+        MainStreetRoleList.add(R4);
     }
 
     public String getName(){return name;}
-    public ArrayList<Room> getAdjRooms(){return mainStAdjList;}
-    public ArrayList<Role> getRoomRoles(){return mainStRoleList;}
+    public ArrayList<Room> getAdjRooms(){return MainStreetAdjList;}
+    public ArrayList<Role> getRoomRoles(){return MainStreetRoleList;}
     public int getRoleNum(){return roleNum;}
     public int getAdjRoomNum(){return adjRoomNum;}
-    public void addRoom(Room room){mainStAdjList.add(room);}
+    public void addRoom(Room room){MainStreetAdjList.add(room);}
     public Scene getScene(){return movie;}
+    public int getShots(){return shots;}
+    public void setShots(int shots){this.shots =shots;}
+    public void setScene(Scene scene){
+        movie= scene;
+    }
 }
-

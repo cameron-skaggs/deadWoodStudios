@@ -4,7 +4,7 @@ package com.company;
  * Created by skaggsc2 on 2/5/16.
  */
 public class Role {
-    int roleRank;
+    int roleRank =0 ;
     String name;
     boolean inUSe =false;
     boolean onCard = false;

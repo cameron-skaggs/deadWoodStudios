@@ -16,6 +16,6 @@ public abstract class Scene {
     public boolean isComplete(){return complete;}
     public int getBudget(){return budget;}
     public String getName(){return name;}
-    public ArrayList<Role> getSceneRoles(){return null;}
+    public ArrayList<Role> getRoleArrayList(){return null;}
 
 }

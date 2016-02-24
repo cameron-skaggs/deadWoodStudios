@@ -5,12 +5,7 @@ import java.util.*;
 /***************************************************
  *
  * What needs to be done:
- *
- * (1) Fix the changes requestd for room classes (Ryan)
- *
- * (2) Add all rooms to adjacency lists in main. (Ryan)
- *
- * (3) Distribute the scenes for the rooms (Rimika)
+ * Program Working!
  *
  ****************************************************/
 public class Main {
@@ -21,13 +16,11 @@ public class Main {
     *
     *                   Main Method:
      *
-     *                  (1) Initializes all of the rooms and players
+     *                  (1) Initializes all of the rooms
      *
-     *                  (2) gameStart gets the number of players from the player, and sets the number of days the game will have.
+     *                  (2) Initializes all of the adjacent rooms
      *
-     *                  (3) The majority of the game occures in this while loop. Once all the scenes have been completed
-     *                      the day class iterates. Once the days are completed the program will terminate.
-     *                      (NOTE: not currently operating correctly.)
+     *                  (3) Creates a room adjacency list
      *
      *                 (4) These if statements ensure our player goes to the right methods depending on whether or not he is
      *                     acting.
@@ -37,13 +30,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* (1) */
         ArrayList<Player> playerArrayList= new ArrayList<Player>();
+        ArrayList<Room> roomArrayList = new ArrayList<Room>();
+
+        /************************************
+        *
+        *       (1) Room Initialization
+        *
+        **************************************/
 
         Room trailer = new Trailer();
         Room saloon = new Saloon();
         Room mainStreet = new MainStreet();
         Room hotel = new Hotel();
+        Room trainStation = new TrainStation ();
+        Room jail = new Jail();
+        Room generalStore = new GeneralStore();
+        Room ranch = new Ranch();
+        Room secretHideout = new SecretHideout();
+        Room bank = new Bank();
+        Room church = new Church();
+        Room castingOffice = new CastingOffice();
+
+        /************************************
+         *
+         *      (2) Adjacency List
+         *
+         **************************************/
 
         trailer.addRoom(saloon);
         trailer.addRoom(hotel);
@@ -51,24 +64,109 @@ public class Main {
 
         saloon.addRoom(trailer);
         saloon.addRoom(mainStreet);
+        saloon.addRoom(generalStore);
+        saloon.addRoom(bank);
 
         mainStreet.addRoom(saloon);
         mainStreet.addRoom(trailer);
-        mainStreet.addRoom(hotel);
+        mainStreet.addRoom(jail);
 
         hotel.addRoom(trailer);
+        hotel.addRoom(bank);
+        hotel.addRoom(church);
 
-        /* (2) */
+        bank.addRoom(saloon);
+        bank.addRoom(ranch);
+        bank.addRoom(hotel);
+        bank.addRoom(church);
+
+        church.addRoom(bank);
+        church.addRoom(hotel);
+        church.addRoom(secretHideout);
+
+        ranch.addRoom(bank);
+        ranch.addRoom(secretHideout);
+        ranch.addRoom(castingOffice);
+        ranch.addRoom(generalStore);
+
+        secretHideout.addRoom(church);
+        secretHideout.addRoom(ranch);
+        secretHideout.addRoom(castingOffice);
+
+        castingOffice.addRoom(secretHideout);
+        castingOffice.addRoom(ranch);
+        castingOffice.addRoom(trainStation);
+
+        trainStation.addRoom(castingOffice);
+        trainStation.addRoom(generalStore);
+        trainStation.addRoom(jail);
+
+        generalStore.addRoom(ranch);
+        generalStore.addRoom(saloon);
+        generalStore.addRoom(trainStation);
+        generalStore.addRoom(jail);
+
+        jail.addRoom(mainStreet);
+        jail.addRoom(generalStore);
+        jail.addRoom(trainStation);
+
+        /************************************
+         *
+         *       (3) Room Array Lists
+         *
+         **************************************/
+
+        roomArrayList.add(saloon);
+        roomArrayList.add(mainStreet);
+        roomArrayList.add(hotel);
+        roomArrayList.add(bank);
+        roomArrayList.add(ranch);
+        roomArrayList.add(church);
+        roomArrayList.add(secretHideout);
+        roomArrayList.add(trainStation);
+        roomArrayList.add(generalStore);
+
+
         int playerNum = gameStart();
         makePlayers(trailer, playerArrayList);
 
-        /* (3) */
+
+        scene1 scene1 = new scene1();
+        scene2 scene2 = new scene2();
+        scene3 scene3 = new scene3();
+        scene4 scene4 = new scene4();
+        scene5 scene5 = new scene5();
+        scene6 scene6 = new scene6();
+        scene7 scene7 = new scene7();
+        scene8 scene8 = new scene8();
+        ArrayList<Scene> sceneArrayList = new ArrayList<Scene>();
+        sceneArrayList.add(scene1);
+        sceneArrayList.add(scene2);
+        sceneArrayList.add(scene3);
+        sceneArrayList.add(scene4);
+        sceneArrayList.add(scene5);
+        sceneArrayList.add(scene6);
+        sceneArrayList.add(scene7);
+        sceneArrayList.add(scene8);
+
+        for(int i = 0; i < roomArrayList.size(); i++ ){
+            int j = sceneArrayList.size();
+            int k =  (int)(Math.random()*j);
+            roomArrayList.get(i).setScene(sceneArrayList.get(k));
+        }
+
         while(Day.getDayCount() <= Day.getDayNum()) {
 
             boolean saloonScene = saloon.getScene().isComplete();
             boolean hotelScene = hotel.getScene().isComplete();
             boolean mainStScene = hotel.getScene().isComplete();
-            if(saloonScene && hotelScene && mainStScene){
+            boolean bankScene = bank.getScene().isComplete();
+            boolean ranchScene = ranch.getScene().isComplete();
+            boolean churchScene = church.getScene().isComplete();
+            boolean secretScene = secretHideout.getScene().isComplete();
+            boolean trainScene = trainStation.getScene().isComplete();
+            boolean generalScene = generalStore.getScene().isComplete();
+            if(saloonScene && hotelScene && mainStScene && bankScene && ranchScene && churchScene && secretScene && trainScene && generalScene){
                 int count = Day.getDayCount() +1;
                 Day.setDayNum(count);
                 System.out.println(" Day has ended now on day " +
@@ -82,9 +180,11 @@ public class Main {
                 Player player = playerArrayList.get(i);
                 Room newRoom = playerArrayList.get(i).getCurrentRoom();
                 if(player.isActing()){
+
                     System.out.println(player.getPlayerName() + " currently is in rank "
-                            + player.getRank() + " and has the role " + player.getCurrentRole()
+                            + player.getRank() + " and has the role " + player.getCurrentRole().getName()
                             + " along with " + player.getMoney() + " dollars.\n\n");
+
                     playerActTurn(player, newRoom);
                 }
                 if(!player.isActing()){
@@ -263,7 +363,6 @@ public class Main {
     public static void move(Player player, Room room,ArrayList<Room> adjList){
         System.out.println("\n Chose a room : \n");
         int size = adjList.size();
-        System.out.println(size);
         for (int i= 0; i < size; i++){
             int j = i+1;
             System.out.println("(" + j +") " + adjList.get(i).getName());
@@ -317,32 +416,28 @@ public class Main {
 
         Scanner userInput = new Scanner(System.in);
         System.out.println("\n Roles in " + room.getName() + "\n");
-        int roleSize = room.getRoleNum();
+        ArrayList<Role> roleList = new ArrayList<Role>();
 
-        /* (1) */
-        /*
-        if (room.getRoomRoles().size()==0) {
-            System.out.println("No roles left in this room partner. Try again! \n");
-            System.out.println(player.getPlayerName() + " you're in the " + room.getName() + ", chose yer next move \n"
-                    + " (1) Move \n (2) Do nothin' ");
-            int playerChoice2 = userInput.nextInt();
-        }*/
-        /* (2) */
-        int size2 = room.getScene().getSceneRoles().size();
-        for (int i=0; i < roleSize; i++){
+        int roleSize = room.getScene().getRoleArrayList().size();
+        int roomRoleSize = room.getScene().getRoleArrayList().size();
+
+        for (int i=0; i < roomRoleSize; i++){
             int j = i+1;
             Role role = room.getRoomRoles().get(i);
+            roleList.add(role);
             System.out.println("(" + j +") " + role.getName() + "- Rank:" +
                     role.getRoleRank() + "  Your rank: " + player.getRank());
         }
-        for (int i=0; i < size2; i++){
-            int j = i+1;
-            Role role = room.getScene().getSceneRoles().get(i);
+        for (int i=0; i < roleSize; i++){
+            int j = i+roomRoleSize+1;
+            //System.out.println(size2);
+            Role role = room.getScene().getRoleArrayList().get(i);
+            roleList.add(role);
             System.out.println("(" + j +") " + role.getName() + "- Rank:" +
                     role.getRoleRank() + "  Your rank: " + player.getRank());
         }
-        int playerMove = userInput.nextInt() - 1;
-        Role role = room.getRoomRoles().get(playerMove);
+        int playerMove = userInput.nextInt()-1;
+        Role role = roleList.get(playerMove);
 
         if(player.getRank() < role.getRoleRank()){
             System.out.println(" Sorry partner, your rank is "

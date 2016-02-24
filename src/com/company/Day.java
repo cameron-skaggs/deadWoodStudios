@@ -1,22 +1,8 @@
 package com.company;
 import java.util.*;
-/**
- * Created by skaggsc2 on 2/5/16.
- */
-/*public class Day{
-
-
-    private static int dayNum;
-    public static int dayCount = 1;
-
-    public static void setDayNum(int day){
-        dayNum = day;
-    }
-
-    public static int getDayNum() {return dayNum;}
-
-    public static int getDayCount(){return dayCount;}
-}*/
+// Rimika Majumdar
+// CSCI 345
+// class determines when the day is over and what scenes go where
 public class Day {
 
     private static int dayNum;
@@ -49,7 +35,7 @@ public class Day {
         int currDollarPoints;
         int currRankPoints;
         int prevDollarPoints;
-        int prevRankPoints = 0;
+        int prevRankPoints=0;
         for(int i = 1; i < playerNum; i++) {
             currDollarPoints = (int) playerArrayList.get(i).getMoney() * 1;
             currRankPoints = (int) playerArrayList.get(i).getRank() * 5;
@@ -63,5 +49,12 @@ public class Day {
         }
         printWinner(currentWinner, winPoints);
     }
+/*
+    public static Scene randomSceneGenerator() {
+        Random num = new Random();
+        int sceneNum = num.nextInt(39)+1; //min 0 max 38
+        Scene scene = new Scene(sceneNum);
+        return scene;
+    }*/
 
 }

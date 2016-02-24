@@ -20,7 +20,7 @@ public class scene5 extends Scene {
     Role Role2;
     Role Role3;
 
-    ArrayList<Role> roleArrayList;
+    ArrayList<Role> roleArrayList= new ArrayList<Role>();
     public ArrayList<Role> getRoleArrayList(){return roleArrayList;}
 
 
@@ -33,16 +33,16 @@ public class scene5 extends Scene {
         this.role2int = 2;
         this.role3int = 4;
         this.budget = 4;
-        roleArrayList.add(Role1);
-        roleArrayList.add(Role2);
 
         Role1 = new Role(role1int, role1, true);
         Role2 = new Role(role2int, role2, true);
         Role3 = new Role(role3int, role3, true);
+        roleArrayList.add(Role1);
+        roleArrayList.add(Role2);
     }
 
     public void setComplete(boolean complete){}
     public boolean isComplete(){return complete;}
     public int getBudget(){return budget;}
-    public String getName(){return name;}
+    public String getName(){return scenename;}
 }
