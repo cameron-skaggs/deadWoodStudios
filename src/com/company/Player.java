@@ -36,6 +36,14 @@ public class Player {
 
     public int getRank(){return rank;}
 
+    public void setRank(int rank){
+        this.rank = rank;
+    }
+    public void removeMoney(int money){
+        this.money = this.money-money;
+    }
+
+
     public void setCurrentRole(Role currentRole){
         this.currentRole = currentRole;
     }

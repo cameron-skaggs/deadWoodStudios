@@ -1,4 +1,6 @@
 package com.company;
+import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
+
 import java.util.*;
 
 
@@ -61,6 +63,7 @@ public class Main {
         trailer.addRoom(saloon);
         trailer.addRoom(hotel);
         trailer.addRoom(mainStreet);
+        trailer.addRoom(castingOffice);
 
         saloon.addRoom(trailer);
         saloon.addRoom(mainStreet);
@@ -302,58 +305,91 @@ public class Main {
      *                  function based on their choice.
      *
      * ***********************************************/
-    public static void playerTurn(Player player, Room room){
+    public static void playerTurn(Player player, Room room) {
+        if (room.getName() == "Casting Office") {
+
+  /* (1) */
+            ArrayList<Room> adjList = room.getAdjRooms();
+            int size = room.getAdjRoomNum();
+            Scanner userInput = new Scanner(System.in);
+
+            System.out.print(" " + player.getPlayerName() + " you're in the " +
+                    room.getName() + " you have $" + player.getMoney() +
+                    " and are rank " + player.getRank() + ", chose yer next move \n"
+                    + " (1) Move  \n (2)Upgrade Rank \n (3) Do nothin' \n > ");
+
+            int playerChoice = userInput.nextInt();
+
+        /* (2) */
+            while (playerChoice < 1 || playerChoice > 4) {
+                System.out.println(playerChoice + " is not a valid option partner, try again \n (1) Move \n" +
+                        " (2) Chose a role \n" +
+                        " (3) Upgrade Rank \n" + "(4) Do nothin' \n >");
+                playerChoice = userInput.nextInt();
+            }
+        /* (3) */
+            if (playerChoice == 1) {
+                move(player, room, adjList);
+            }
+
+            if (playerChoice == 2 && player.getMoney() >= 4) {
+                UpgradeRank(player, player.getMoney());
+            } else {
+                System.out.println(" You need more money friend.");
+            }
+        } else {
 
         /* (1) */
-        ArrayList<Room> adjList = room.getAdjRooms();
-        int size = room.getAdjRoomNum();
-        Scanner userInput = new Scanner(System.in);
-        if (room.getRoomRoles().size() == 0) {
+            ArrayList<Room> adjList = room.getAdjRooms();
+            int size = room.getAdjRoomNum();
+            Scanner userInput = new Scanner(System.in);
+            if (room.getRoomRoles().size() == 0) {
 
                 System.out.println(player.getPlayerName()
-                        +" you're in the " + room.getName()+ " choose your next move " +
+                        + " you're in the " + room.getName() + " choose your next move " +
                         "\n (1) Move \n" +
                         " (2) Do nothin' \n >");
 
-            int playerChoice = userInput.nextInt();
+                int playerChoice = userInput.nextInt();
 
-            while(playerChoice < 1 || playerChoice > 2) {
-                System.out.println(playerChoice + " is not a valid option partner, try" +
-                        " again \n (1) Move \n" +
-                        " (2) Do nothin' \n >");
-                playerChoice = userInput.nextInt();
+                while (playerChoice < 1 || playerChoice > 2) {
+                    System.out.println(playerChoice + " is not a valid option partner, try" +
+                            " again \n (1) Move \n" +
+                            " (2) Do nothin' \n >");
+                    playerChoice = userInput.nextInt();
+                }
+
+                if (playerChoice == 1) {
+                    move(player, room, adjList);
+                }
             }
+            if (room.getRoomRoles().size() > 0) {
+                System.out.print(" " + player.getPlayerName() + " you're in the " +
+                        room.getName() + " you have $" + player.getMoney() +
+                        " and are rank " + player.getRank() + ", chose yer next move \n"
+                        + " (1) Move \n (2) Chose a role \n (3) Do nothin' \n > ");
 
-            if(playerChoice== 1) {
-                move(player, room, adjList);
-            }
-        }
-        if(room.getRoomRoles().size() > 0 ){
-            System.out.print(" " + player.getPlayerName() + " you're in the " +
-                    room.getName() +" you have $"+ player.getMoney() +
-                    " and are rank "+ player.getRank() + ", chose yer next move \n"
-                    + " (1) Move \n (2) Chose a role \n (3) Do nothin' \n > ");
-
-            int playerChoice = userInput.nextInt();
+                int playerChoice = userInput.nextInt();
 
              /* (2) */
 
-            while(playerChoice < 1 || playerChoice > 3){
-                System.out.println(playerChoice + " is not a valid option partner, try again \n (1) Move \n" +
-                        " (2) Chose a role \n" +
-                        " (3) Do nothin' \n >");
-                playerChoice = userInput.nextInt();
-            }
+                while (playerChoice < 1 || playerChoice > 3) {
+                    System.out.println(playerChoice + " is not a valid option partner, try again \n (1) Move \n" +
+                            " (2) Chose a role \n" +
+                            " (3) Do nothin' \n >");
+                    playerChoice = userInput.nextInt();
+                }
             /* (3) */
-            if(playerChoice== 1) {
-                move(player, room, adjList);
+                if (playerChoice == 1) {
+                    move(player, room, adjList);
+                }
+
+                if (playerChoice == 2) {
+                    chooseRole(room, player, size, adjList);
+                }
             }
 
-            if(playerChoice == 2){
-                chooseRole(room, player, size, adjList);
-            }
         }
-
     }
     /************************************************
      *
@@ -525,5 +561,84 @@ public class Main {
                 }
             }
         }
+    }
+    public static void UpgradeRank(Player player, int money){
+
+        int temp = 1;
+        if(money >= 4){
+            temp = 2;
+        }
+        if(money >= 10){
+            temp = 3;
+        }
+        if(money >= 18){
+            temp = 4;
+        }
+        if(money >= 28){
+            temp = 5;
+        }
+        if(money >= 40){
+            temp = 6;
+        }
+
+        System.out.println( "Press the key correspondind to the rank you want \n"
+                +"   RANK     Money \n"
+                +"(1) 2         4   \n"
+                +"(2) 3        10   \n"
+                +"(3) 4        18   \n"
+                +"(4) 5        28   \n"
+                +"(5) 6        40   \n"
+                +"you currently have " + money);
+
+        Scanner userInput = new Scanner(System.in);
+        int playerChoice = userInput.nextInt();
+
+             /* (2) */
+
+        while(playerChoice < 1 || playerChoice > 5){
+            System.out.println(playerChoice + " is not a valid option partner, try again \n"
+                    +"   RANK     Money \n"
+                    +"(1) 2         4   \n"
+                    +"(2) 3        10   \n"
+                    +"(3) 4        18   \n"
+                    +"(4) 5        28   \n"
+                    +"(5) 6        40   \n"
+                    +"you currently have $" + money + ">");
+
+            playerChoice = userInput.nextInt();
+        }
+
+        if(playerChoice== 1 && temp >=2) {
+            player.setRank(2);
+            player.removeMoney(4);
+
+        }
+        if(playerChoice== 2 && temp >=2) {
+            player.setRank(3);
+            player.removeMoney(10);
+        }
+
+        if(playerChoice== 3 && temp >=2) {
+            player.setRank(4);
+            player.removeMoney(18);
+        }
+
+        if(playerChoice== 4 && temp >=2) {
+            player.setRank(5);
+            player.removeMoney(28);
+        }
+
+        if(playerChoice== 5 && temp >=2) {
+            player.setRank(6) ;
+            player.removeMoney(40);
+        }
+        else {
+            System.out.println(" you do not have enough credits partner! be serious");
+
+        }
+        System.out.println(" Rank is now " + player.getRank());
+        System.out.println(" You have $" + player.getMoney() + " left \n");
+
+
     }
 }
