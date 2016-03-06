@@ -13,6 +13,7 @@ import javax.swing.*;
  * Created by skaggsc2 on 3/4/16.
  */
 public class Label extends JPanel {
+    static JFrame frame = new JFrame("LabelDemo");
 
     public Label(){
         super(new GridLayout(1,1));
@@ -33,7 +34,7 @@ public class Label extends JPanel {
     }
     public static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("LabelDemo");
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add content to the window.
@@ -42,6 +43,10 @@ public class Label extends JPanel {
         //Display the window.
         frame.pack();
         frame.setVisible(true);
-    }
 
+    }
+    public static void  closeWindow(){
+        JFrame frame = new JFrame("LabelDemo");
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+    }
 }

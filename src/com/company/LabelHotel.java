@@ -36,7 +36,7 @@ public class LabelHotel extends JPanel {
 
 
         //Add content to the window.
-        frame.add(new LabelJail());
+        frame.add(new LabelHotel());
 
         //Display the window.
         frame.pack();

@@ -36,7 +36,7 @@ public class LabelSaloon extends JPanel {
 
 
         //Add content to the window.
-        frame.add(new LabelStreet());
+        frame.add(new LabelSaloon());
 
         //Display the window.
         frame.pack();
