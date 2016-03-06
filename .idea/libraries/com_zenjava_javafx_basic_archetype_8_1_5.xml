@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.zenjava:javafx-basic-archetype:8.1.5" type="repository">
+    <properties maven-id="com.zenjava:javafx-basic-archetype:8.1.5" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zenjava/javafx-basic-archetype/8.1.5/javafx-basic-archetype-8.1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

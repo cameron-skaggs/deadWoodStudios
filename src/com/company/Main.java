@@ -1,6 +1,13 @@
 package com.company;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
-
 import java.util.*;
 
 
@@ -10,7 +17,7 @@ import java.util.*;
  * Program Working!
  *
  ****************************************************/
-public class Main {
+public class Main extends JPanel {
 
     public static int playerNum;
 
@@ -34,6 +41,21 @@ public class Main {
 
         ArrayList<Player> playerArrayList= new ArrayList<Player>();
         ArrayList<Room> roomArrayList = new ArrayList<Room>();
+        Label.createAndShowGUI();
+/*
+        try{
+            BufferedImage myPicture = ImageIO.read(new File("/home/skaggsc2/Documents/CS345/hw2/Gameboards/gameBoard.jpg"));
+            JLabel label1 = new JLabel(new ImageIcon(myPicture));
+
+
+            JOptionPane.showMessageDialog(null, label1);
+
+        }
+        catch (IOException ex){
+            System.out.println("Invalid Picture");
+        }
+
+*/
 
         /************************************
         *
@@ -194,6 +216,52 @@ public class Main {
                     System.out.println(player.getPlayerName() + " has rank "
                             + player.getRank() + " and has "
                             + player.getMoney() + " dollars.\n\n");
+                    if (newRoom.getName() == "Trailer"){
+                        LabelTrailer.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Main Street"){
+                        LabelStreet.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Saloon"){
+                        //output picture gameBoard3-0
+                        LabelSaloon.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Bank"){
+                        //output picture gameBoard4-0
+                        LabelBank.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Church"){
+                        //output picture gameBoard5-0
+                        LabelChurch.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Hotel"){
+                        //output picture gameBoard6-0
+                        LabelHotel.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Ranch"){
+                        //output picture gameBoard7-0
+                        LabelRanch.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Secret Hideout"){
+                        //output picture gameBoard8-0
+                        LabelHideout.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Casting Office"){
+                        //output picture gameBoard9-0
+                        LabelOffice.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "General Store"){
+                        //output picture gameBoard10-0
+                        LabelStore.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Train Station"){
+                        //output picture gameBoard11-0
+                        LabelStation.createAndShowGUI();
+                    }
+                    else if (newRoom.getName() == "Jail"){
+                        //output picture gameBoard12-0
+                        LabelJail.createAndShowGUI();
+                    }
                     playerTurn(player, newRoom);
                 }
             }
@@ -201,6 +269,7 @@ public class Main {
         Day.determineWinner(playerArrayList, playerNum);
 
     }
+
     /************************************************
      *
      *              Game Start Method:
@@ -212,6 +281,7 @@ public class Main {
      *              (3) Make sure player put in right number
      *
      * ***********************************************/
+
     public static int gameStart() {
 
         /* (1) */
@@ -219,6 +289,10 @@ public class Main {
         System.out.println("\n Howdy partner! Welcome to DeadWood Studios! \n How many players? \n >");
         playerNum = userInput.nextInt();
 
+        if(playerNum == 42){
+            System.out.println(" So it goes... ");
+            System.exit(42);
+        }
         /* (2) */
         while(playerNum > 8 || playerNum < 2){
 
@@ -306,6 +380,7 @@ public class Main {
      *
      * ***********************************************/
     public static void playerTurn(Player player, Room room) {
+
         if (room.getName() == "Casting Office") {
 
   /* (1) */
