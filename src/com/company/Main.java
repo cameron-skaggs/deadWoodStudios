@@ -3,18 +3,23 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
+//import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 import java.util.*;
+import java.lang.Thread;
 
 
 /***************************************************
  *
  * What needs to be done:
- * Program Working!
+ *
+ * (1) Grab files from JAR directory (Ryan)
+ *
+ * (2) Implement text into gae (Rimika)
  *
  ****************************************************/
 public class Main extends JPanel {
@@ -41,21 +46,7 @@ public class Main extends JPanel {
 
         ArrayList<Player> playerArrayList= new ArrayList<Player>();
         ArrayList<Room> roomArrayList = new ArrayList<Room>();
-        Label.createAndShowGUI();
-/*
-        try{
-            BufferedImage myPicture = ImageIO.read(new File("/home/skaggsc2/Documents/CS345/hw2/Gameboards/gameBoard.jpg"));
-            JLabel label1 = new JLabel(new ImageIcon(myPicture));
-
-
-            JOptionPane.showMessageDialog(null, label1);
-
-        }
-        catch (IOException ex){
-            System.out.println("Invalid Picture");
-        }
-
-*/
+        Label.createAndShowGUI("start");
 
         /************************************
         *
@@ -216,52 +207,9 @@ public class Main extends JPanel {
                     System.out.println(player.getPlayerName() + " has rank "
                             + player.getRank() + " and has "
                             + player.getMoney() + " dollars.\n\n");
-                    if (newRoom.getName() == "Trailer"){
-                        LabelTrailer.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Main Street"){
-                        LabelStreet.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Saloon"){
-                        //output picture gameBoard3-0
-                        LabelSaloon.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Bank"){
-                        //output picture gameBoard4-0
-                        LabelBank.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Church"){
-                        //output picture gameBoard5-0
-                        LabelChurch.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Hotel"){
-                        //output picture gameBoard6-0
-                        LabelHotel.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Ranch"){
-                        //output picture gameBoard7-0
-                        LabelRanch.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Secret Hideout"){
-                        //output picture gameBoard8-0
-                        LabelHideout.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Casting Office"){
-                        //output picture gameBoard9-0
-                        LabelOffice.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "General Store"){
-                        //output picture gameBoard10-0
-                        LabelStore.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Train Station"){
-                        //output picture gameBoard11-0
-                        LabelStation.createAndShowGUI();
-                    }
-                    else if (newRoom.getName() == "Jail"){
-                        //output picture gameBoard12-0
-                        LabelJail.createAndShowGUI();
-                    }
+                    String name = newRoom.getName();
+
+                    Label.createAndShowGUI(name);
                     playerTurn(player, newRoom);
                 }
             }
@@ -492,6 +440,13 @@ public class Main extends JPanel {
         }
         System.out.println(" You move into the " + adjList.get(playerMove).getName() + "\n");
         Room newRoom = adjList.get(playerMove);
+        System.out.println(player.getPlayerName() + " has rank "
+                + player.getRank() + " and has "
+                + player.getMoney() + " dollars.\n\n");
+
+        String name = newRoom.getName();
+        Label.createAndShowGUI(name);
+        Delay();
 
         if(newRoom.getScene() != null){
             Scene scene =newRoom.getScene();
@@ -715,5 +670,12 @@ public class Main extends JPanel {
         System.out.println(" You have $" + player.getMoney() + " left \n");
 
 
+    }
+    private static void Delay(){
+        try{
+            Thread.sleep(2000);
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
     }
 }

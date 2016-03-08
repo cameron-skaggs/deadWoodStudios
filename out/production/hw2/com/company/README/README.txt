@@ -1,1 +1,0 @@
-Main is where I implement the trailer and saloon which gives me trouble. The saloon and trailer classes are extended from the room class.
