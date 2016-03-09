@@ -445,6 +445,7 @@ public class Main extends JPanel {
                 + player.getMoney() + " dollars.\n\n");
 
         String name = newRoom.getName();
+        System.out.println(name);
         Label.createAndShowGUI(name);
         Delay();
 

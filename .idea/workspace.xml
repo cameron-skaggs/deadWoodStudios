@@ -5,38 +5,12 @@
       <artifact name="hw2:jar" />
     </artifacts-to-build>
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/com/company/Label.java" line="67" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ae53da1b-8b96-4ac2-873f-3c4c7524ba64" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/hw2_jar/hw2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelBank.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelChurch.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelHideout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelHotel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelJail.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelOffice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelRanch.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelSaloon.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelStation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelStore.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelStreet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/LabelTrailer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/README/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelBank.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelChurch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelHideout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelHotel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelJail.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelOffice.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelRanch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelSaloon.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelStation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelStore.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelStreet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/LabelTrailer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/Label.class" afterPath="$PROJECT_DIR$/out/production/hw2/com/company/Label.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/hw2/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/hw2/com/company/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2.iml" afterPath="$PROJECT_DIR$/hw2.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Label.java" afterPath="$PROJECT_DIR$/src/com/company/Label.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
     </list>
@@ -63,8 +37,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.535714">
-              <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,10 +49,12 @@
       <file leaf-file-name="Label.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Label.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7694805">
-              <caret line="82" column="4" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.41396105">
+              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#11638#11639#0" expanded="true" />
+                <element signature="e#11669#11670#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,9 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,6 +245,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -550,12 +526,36 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Label.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11638#11639#0" expanded="true" />
+            <element signature="e#11669#11670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11638#11639#0" expanded="true" />
+            <element signature="e#11669#11670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -595,6 +595,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11638#11639#0" expanded="true" />
+            <element signature="e#11669#11670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -877,8 +879,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.535714">
-          <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -887,10 +889,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Label.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7694805">
-          <caret line="82" column="4" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.41396105">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11638#11639#0" expanded="true" />
+            <element signature="e#11669#11670#0" expanded="true" />
           </folding>
         </state>
       </provider>
