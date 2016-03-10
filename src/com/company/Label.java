@@ -15,7 +15,7 @@ import javax.swing.*;
  */
 
 public class Label extends JPanel {
-    
+
     static JFrame frame = new JFrame("Deadwood Studios");
     static JLabel label;
     static JLabel labelTrailer;
@@ -42,6 +42,7 @@ public class Label extends JPanel {
     static JLabel labelTSA;
     static JLabel labelJail;
     static JLabel labelJailA;
+    static JLabel labelact;
 
     public Label(String diagram){
         super(new GridLayout(1,1));
@@ -73,7 +74,7 @@ public class Label extends JPanel {
             ImageIcon picHotel = new ImageIcon(myPictureHotel);
             labelHotel = new JLabel(picHotel, JLabel.CENTER);
 
-            BufferedImage myPictureBank = ImageIO.read(new File("/home/skaggsc2/Documents/CS345/hw2/Gameboards/gameBoard4-0.jpg"));
+            BufferedImage myPictureBank = ImageIO.read(new URL("https://raw.githubusercontent.com/skaggs1995/deadWoodStudios/master/Gameboards/gameBoard4-0.jpg"));
             ImageIcon picBank = new ImageIcon(myPictureBank);
             labelBank = new JLabel(picBank, JLabel.CENTER);
 
@@ -149,6 +150,10 @@ public class Label extends JPanel {
             BufferedImage myPicture121 = ImageIO.read(new URL("https://raw.githubusercontent.com/skaggs1995/deadWoodStudios/master/Gameboards/gameBoard12-1.jpg"));
             ImageIcon pic121 = new ImageIcon(myPicture121);
             labelJailA = new JLabel(pic121, JLabel.CENTER);
+
+            BufferedImage myPictureact = ImageIO.read(new URL("http://www.kirklandtownlibrary.org/wp-content/uploads/2013/04/be-dramatic-and-keep-acting-1.png"));
+            ImageIcon picact = new ImageIcon(myPictureact);
+            labelact = new JLabel(picact, JLabel.CENTER);
 
         }
         catch (IOException ex){
@@ -258,6 +263,10 @@ public class Label extends JPanel {
         if(diagram.equals("JailA")){
             removeAll();
             add(labelJailA);
+        }
+        if(diagram.equals("act")){
+            removeAll();
+            add(labelact);
         }
 
     }

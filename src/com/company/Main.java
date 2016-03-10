@@ -531,6 +531,8 @@ public class Main extends JPanel {
      * ***********************************************/
     public static void playerActTurn(Player player, Room room){
 
+        Label.createAndShowGUI("act");
+
         Scene scene = room.getScene();
         int budget = scene.getBudget();
         int shots = room.getShots();
